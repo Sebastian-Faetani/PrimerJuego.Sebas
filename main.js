@@ -1,5 +1,5 @@
 import StartMenu from "./assets/scenes/StartMenu.js";
-import Game from "./assets/scenes/Game1.js";
+import Game from "./assets/scenes/Game.js";
 import Preload from "./assets/scenes/Preload.js";
 import Win from "./assets/scenes/Win.js";
 import GameOver from "./assets/scenes/GameOver.js";

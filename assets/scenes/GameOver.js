@@ -4,10 +4,15 @@ export default class GameOver extends Phaser.Scene {
   }
 
   create() {
+    this.failSound = this.sound.add("failSound", { loop: true });
+    this.failSound.play();
+
     this.add
       .image(400, 300, "youLost")
       .setScale(3)
       .setInteractive()
-      .on("pointerdown", () => this.scene.start("Game"));
+      .on("pointerdown", () => {
+        this.failSound.stop(), this.scene.start("StartMenu");
+      });
   }
 }

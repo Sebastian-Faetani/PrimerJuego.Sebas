@@ -35,9 +35,7 @@ export default class Game extends Phaser.Scene {
 
     //add shapes
     this.shapesGroup = this.physics.add.group();
-    // this.shapesGroup.create(100, 0, "square");
-    // this.shapesGroup.create(200, 0, "diamond");
-    // this.shapesGroup.create(300, 0, "triangle");
+
     //create event to add shapes
     this.time.addEvent({
       delay: 500,
@@ -101,15 +99,21 @@ export default class Game extends Phaser.Scene {
       fontStyle: "bold",
       fill: "#FFFFFF",
     });
+
+    //add back ground music
+    this.backGroundMusic = this.sound.add("backGroundMusic", { loop: true });
+    this.backGroundMusic.play();
   }
 
   update() {
     //win condition
     if (this.score >= 200) {
+      this.backGroundMusic.stop();
       this.scene.start("Win");
     }
     //lose condition
     if (this.gameOver) {
+      this.backGroundMusic.stop();
       this.scene.start("GameOver");
     }
 
